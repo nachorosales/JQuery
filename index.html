@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio con Bootstrap y JQuery</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Tu CSS personalizado (si es necesario) -->
+  <style>
+    /* Aquí puedes añadir estilos adicionales si los necesitas */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Ejercicio con Bootstrap y JQuery</h1>
+    <div class="text-center mb-3">
+      <button id="ocultarBtn" class="btn btn-primary mr-2">Ocultar Imagen</button>
+      <button id="mostrarBtn" class="btn btn-primary">Mostrar Imagen</button>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3 mb-3">
+        <img src="img1.jpg" alt="Imagen 1" class="img-fluid imagen" style="display: none;">
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="img2.jpg" alt="Imagen 2" class="img-fluid imagen" style="display: none;">
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="img3.jpg" alt="Imagen 3" class="img-fluid imagen" style="display: none;">
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="img4.jpg" alt="Imagen 4" class="img-fluid imagen" style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var imagenes = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"];
+
+      $("#ocultarBtn").click(function() {
+        $(".imagen").hide();
+        $("h1").text("¡No tenemos ninguna imagen!").addClass("text-danger");
+      });
+
+      $("#mostrarBtn").click(function() {
+        var randomIndex = Math.floor(Math.random() * imagenes.length);
+        $(".imagen").hide().eq(randomIndex).show();
+        $("h1").text("¡Mirá la siguiente imagen!").removeClass("text-danger");
+      });
+    });
+  </script>
+</body>
+</html>
